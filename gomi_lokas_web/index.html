@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#b91f1f">
+  <meta name="description" content="Gomi Lokas: gomitas enchiladas para quienes se atreven. Descubre nuestros sabores, precios y dónde encontrarnos en Unicentro Palmira.">
+  <title>Gomi Lokas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- TIPOGRAFÍAS UNIFICADAS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- LIBRERÍA DE ICONOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../static/css/style.css?v=4">
+  <style>
+    :root {
+      --font-display: "Plus Jakarta Sans", sans-serif;
+      --font-body: "Inter", sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+    }
+
+    h1, h2, h3, h4, .brand-name, .section-heading h2, .reviews-title-ref, .value-title-ref, .review-author-ref, .ticket-top, .top-strip {
+      font-family: var(--font-display);
+    }
+
+    /* FORZAR LA TIPOGRAFÍA DE TÍTULOS Y NEGRITA EN EL MENÚ SUPERIOR DE FORMA ABSOLUTA */
+    nav.nav-links a, 
+    .site-header nav a,
+    .nav-links a {
+      font-family: "Plus Jakarta Sans", sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    /* KICKERS UNIFICADOS CON ROJO CORPORATIVO Y TIPOGRAFÍA */
+    .section-kicker {
+      color: #b91f1f !important;
+      font-family: "Plus Jakarta Sans", sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    /* ESTILO DE BOTONES OUTLINE CON COLOR CORPORATIVO */
+    .btn-product-outline {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 10px 20px;
+      background: transparent;
+      color: #b91f1f;
+      border: 1.5px solid #b91f1f;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .btn-product-outline:hover {
+      background: #b91f1f;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(185, 31, 31, 0.2);
+    }
+
+    /* SECCIÓN DE OPINIONES CON COLORES Y FUENTES UNIFICADAS */
+    .reviews-section-ref {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .reviews-title-ref {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #56180e;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .reviews-grid-ref {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .review-card-ref {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 35px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #f1dfc8;
+      box-shadow: 0 10px 25px rgba(86, 24, 14, 0.05);
+    }
+
+    .review-stars-ref {
+      color: #b91f1f;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .review-text-ref {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: #7a6860;
+      line-height: 1.6;
+      margin: 0 0 25px 0;
+    }
+
+    .review-author-ref {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #56180e;
+      text-transform: uppercase;
+    }
+
+    /* SECCIÓN DE MISIÓN, VISIÓN Y OBJETIVOS CON FUENTE Y COLORES UNIFICADOS */
+    .values-section-ref {
+      padding: 60px 20px;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    .values-grid-ref {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .value-card-ref {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      border: 1px solid #f1dfc8;
+      box-shadow: 0 10px 25px rgba(86, 24, 14, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .value-title-ref {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #56180e;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .value-desc-ref {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: #7a6860;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .value-list-ref {
+      list-style-type: disc;
+      text-align: left;
+      padding-left: 20px;
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: #7a6860;
+      line-height: 1.6;
+    }
+
+    .value-list-ref li {
+      margin-bottom: 10px;
+    }
+  </style>
+  <script src="../static/js/script.js" defer></script>
+</head>
+<body>
+  <div class="top-strip"><span> DULCES CON ACTITUD</span><span>GOMITAS ENCHILADAS · PALMIRA</span><span> ¿TE ATREVES?</span></div>
+  <header class="site-header" id="inicio">
+    <a class="brand" href="#inicio" aria-label="Gomi Lokas, inicio">
+      <!-- LOGO DE GOMI LOKAS -->
+      <img src="../static/img/logo.png" alt="Logo Gomi Lokas" class="brand-logo-img">
+      <span class="brand-name">GOMI <b>LOKAS</b></span>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#productos">Productos</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto" class="nav-cta">¡Contáctanos!</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-pad">
+      <div class="hero-bg-shape shape-one"></div><div class="hero-bg-shape shape-two"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> HECHAS PARA LOS VALIENTES</p>
+        <h1>NO SON PARA <span>DÉBILES.</span></h1>
+        <p class="hero-copy">Gomitas enchiladas que despiertan tus antojos y ponen a prueba tu valentía. ¿Tienes lo necesario para probarlas?</p>
+        
+        <div class="hero-actions-container">
+          <div class="hero-actions">
+            <a class="text-link text-link-human" href="#nosotros">Conoce nuestra empresa <span>↓</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Fotografía de gomitas enchiladas">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="sticker sticker-top">¡PICA<br>RICO!</div>
+        <img src="../static/img/gomitas-real.jpg" alt="Bolsitas de gomitas enchiladas Gomi Lokas" class="hero-real-img">
+        <div class="sticker sticker-bottom">DULCE<br>+ PICANTE</div>
+        <p class="art-caption">PEQUEÑAS, PERO BRAVAS.</p>
+      </div>
+      <div class="hero-bottom-note"><span class="section-kicker">01 / EL ANTOJO</span><span>DESLIZA PARA DESCUBRIR <b>↓</b></span></div>
+    </section>
+
+    <section class="ticker" aria-label="Frase de marca"><div class="ticker-track"><span> DULCE</span><span> PICANTE</span><span> SIN MIEDO</span><span> DULCE</span><span> PICANTE</span><span> SIN MIEDO</span><span> DULCE</span><span> PICANTE</span><span> DULCE</span><span> PICANTE</span><span> SIN MIEDO</span><span> DULCE</span><span> PICANTE</span><span> SIN MIEDO</span><span> DULCE</span><span> PICANTE</span></div></section>
+
+    <!-- SECCIÓN QUIÉNES SOMOS -->
+    <section class="intro section-pad" id="nosotros">
+      <div class="section-kicker reveal">02 / QUIÉNES SOMOS</div>
+      <div class="intro-grid">
+        <div class="intro-media reveal">
+          <div class="team-photo-wrapper">
+            <img src="../static/img/creadoras.png" alt="Creadoras del emprendimiento Gomi Lokas" class="team-photo">
+            <div class="team-badge">El equipo Gomi Lokas</div>
+          </div>
+        </div>
+        <div class="intro-text-content">
+          <div class="intro-title reveal"><h2>Una locura<br><span>deliciosa.</span></h2><div class="scribble"></div></div>
+          <div class="intro-text reveal">
+            <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #7a6860; margin: 0 0 16px 0;">En <span style="color: #b91f1f; font-weight: 600;">Gomi Lokas</span> creemos que un dulce puede ser mucho más que dulce.</p>
+            <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #7a6860; margin: 0;">Gomi Lokas es una empresa dedicada a la elaboración y venta de gomitas enchiladas, combinando sabores dulces, ácidos y picantes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-inner reveal"><p class="eyebrow light"></p><h2>La vida es muy corta<br>para comer <em>gomitas aburridas.</em></h2></div>
+      <span class="manifesto-chili"></span><span class="manifesto-spark"></span>
+    </section>
+
+    <!-- SECCIÓN DE MISIÓN, VISIÓN Y OBJETIVOS -->
+    <section class="values-section-ref reveal">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <p class="section-kicker">03 / LO QUE NOS MUEVE</p>
+      </div>
+
+      <div class="values-grid-ref">
+        <!-- Misión -->
+        <article class="value-card-ref">
+          <h3 class="value-title-ref">Nuestra Misión</h3>
+          <p class="value-desc-ref">Ofrecer gomitas enchiladas deliciosas y divertidas, con una combinación de sabores que sorprenda a nuestros clientes y convierta cada antojo en una experiencia especial.</p>
+        </article>
+
+        <!-- Visión -->
+        <article class="value-card-ref">
+          <h3 class="value-title-ref">Nuestra Visión</h3>
+          <p class="value-desc-ref">Ser un emprendimiento reconocido en nuestra comunidad por su creatividad, sabor y atención, creciendo con responsabilidad y llevando nuestra actitud lokas a más personas.</p>
+        </article>
+
+        <!-- Objetivo General -->
+        <article class="value-card-ref">
+          <h3 class="value-title-ref">Objetivo General</h3>
+          <p class="value-desc-ref">Desarrollar un producto innovador de gomitas enchiladas con un modelo atractivo, accesible, calidad y buen sabor, teniendo en cuenta las preferencias de nuestros clientes para así satisfacer sus necesidades.</p>
+        </article>
+      </div>
+
+      <!-- Objetivos Específicos -->
+      <div style="margin-top: 25px;">
+        <article class="value-card-ref" style="align-items: flex-start; text-align: left; width: 100%; box-sizing: border-box;">
+          <h3 class="value-title-ref" style="align-self: center;">Objetivos Específicos</h3>
+          <ul class="value-list-ref">
+            <li>Elaborar gomitas enchiladas con distintos niveles de picante.</li>
+            <li>Diseñar una marca que incluya nombre, logo y slogan.</li>
+            <li>Ofrecer un producto que sea atractivo, higiénico y de gran calidad.</li>
+            <li>Analizar los costos de producción y establecer precios de venta.</li>
+            <li>Identificar el público objetivo y sus preferencias.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section class="products section-pad" id="productos">
+      <div class="section-heading reveal">
+        <div><p class="section-kicker">04 / EL ESCUADRÓN DEL SABOR</p><h2>Nuestros <span>productos.</span></h2></div>
+      </div>
+      <div class="product-grid">
+        <!-- Producto 1 -->
+        <article class="product-card reveal" style="background: #ffffff; border: 1px solid #f1dfc8; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 25px rgba(86,24,14,0.05);">
+          <div class="product-info" style="padding: 0;">
+            <h3 style="margin: 0 0 12px 0; font-size: 1.35rem; font-weight: 700; color: #56180e; text-transform: none;">Gomitas de tortuga</h3>
+            <p style="margin-bottom: 22px; color: #7a6860; font-size: 0.95rem; line-height: 1.5;">Gomitas de tortuga con chamoy y Tajín.</p>
+          </div>
+          <a href="#contacto" class="btn-product-outline">Consultar producto</a>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="product-card reveal" style="background: #ffffff; border: 1px solid #f1dfc8; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 25px rgba(86,24,14,0.05);">
+          <div class="product-info" style="padding: 0;">
+            <h3 style="margin: 0 0 12px 0; font-size: 1.35rem; font-weight: 700; color: #56180e; text-transform: none;">Aritos enchilados</h3>
+            <p style="margin-bottom: 22px; color: #7a6860; font-size: 0.95rem; line-height: 1.5;">Aritos de gomita con un toque de picante.</p>
+          </div>
+          <a href="#contacto" class="btn-product-outline">Consultar producto</a>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="product-card reveal" style="background: #ffffff; border: 1px solid #f1dfc8; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 25px rgba(86,24,14,0.05);">
+          <div class="product-info" style="padding: 0;">
+            <h3 style="margin: 0 0 12px 0; font-size: 1.35rem; font-weight: 700; color: #56180e; text-transform: none;">Gusanitos enchilados</h3>
+            <p style="margin-bottom: 22px; color: #7a6860; font-size: 0.95rem; line-height: 1.5;">Gusanitos dulces con chamoy y picante.</p>
+          </div>
+          <a href="#contacto" class="btn-product-outline">Consultar producto</a>
+        </article>
+
+        <!-- Producto 4 -->
+        <article class="product-card reveal" style="background: #ffffff; border: 1px solid #f1dfc8; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 25px rgba(86,24,14,0.05);">
+          <div class="product-info" style="padding: 0;">
+            <h3 style="margin: 0 0 12px 0; font-size: 1.35rem; font-weight: 700; color: #56180e; text-transform: none;">Ositos enchilados</h3>
+            <p style="margin-bottom: 22px; color: #7a6860; font-size: 0.95rem; line-height: 1.5;">Ositos de gomita con sabores variados y picante.</p>
+          </div>
+          <a href="#contacto" class="btn-product-outline">Consultar producto</a>
+        </article>
+
+        <!-- Producto 5 -->
+        <article class="product-card reveal" style="background: #ffffff; border: 1px solid #f1dfc8; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 25px rgba(86,24,14,0.05);">
+          <div class="product-info" style="padding: 0;">
+            <h3 style="margin: 0 0 12px 0; font-size: 1.35rem; font-weight: 700; color: #56180e; text-transform: none;">Mix de gomitas</h3>
+            <p style="margin-bottom: 22px; color: #7a6860; font-size: 0.95rem; line-height: 1.5;">Una mezcla de diferentes gomitas con chamoy.</p>
+          </div>
+          <a href="#contacto" class="btn-product-outline">Consultar producto</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE PRECIOS -->
+    <section class="price-section section-pad" id="precios">
+      <div class="price-copy reveal">
+        <p class="section-kicker">05 / PRECIOS</p>
+        <h2>Presentaciones<br><span>y precios.</span></h2>
+        <p></p>
+        <a class="btn btn-light" href="#contacto">¡Quiero pedir! <span>↗</span></a>
+      </div>
+      <div class="price-ticket reveal" style="display: flex; flex-direction: column; gap: 12px; text-align: left; padding: 30px;">
+        <span class="ticket-top" style="text-align: center; color: #b91f1f; font-weight: 700; letter-spacing: 1px;">LISTA DE PRECIOS</span>
+        <div class="ticket-candy" style="text-align: center; font-size: 1.2rem; margin-bottom: -5px;"></div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(86,24,14,0.2); padding-bottom: 8px;">
+          <div>
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 1rem; color: #56180e;">Bolsita 50 g</h4>
+          </div>
+          <span style="font-family: var(--font-display); font-size: 1.1rem; color: #b91f1f; font-weight: 700;">$5.000</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(86,24,14,0.2); padding-bottom: 8px;">
+          <div>
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 1rem; color: #56180e;">Bolsita 100 g</h4>
+          </div>
+          <span style="font-family: var(--font-display); font-size: 1.1rem; color: #b91f1f; font-weight: 700;">$9.000</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(86,24,14,0.2); padding-bottom: 8px;">
+          <div>
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 1rem; color: #56180e;">Tarro pequeño 150 g</h4>
+          </div>
+          <span style="font-family: var(--font-display); font-size: 1.1rem; color: #b91f1f; font-weight: 700;">$13.000</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed rgba(86,24,14,0.2); padding-bottom: 8px;">
+          <div>
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 1rem; color: #56180e;">Bandeja de 4 espacios 200 g</h4>
+          </div>
+          <span style="font-family: var(--font-display); font-size: 1.1rem; color: #b91f1f; font-weight: 700;">$16.000</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 4px;">
+          <div>
+            <h4 style="margin: 0; font-family: var(--font-display); font-size: 1rem; color: #56180e;">Tarro mediano 300 g</h4>
+          </div>
+          <span style="font-family: var(--font-display); font-size: 1.1rem; color: #b91f1f; font-weight: 700;">$23.000</span>
+        </div>
+
+        <span class="ticket-seal" style="align-self: center; margin-top: 2px;"></span>
+      </div>
+    </section>
+
+    <!-- SECCIÓN NUESTRA HISTORIA -->
+    <section class="story section-pad" id="historia">
+      <div class="story-art reveal">
+        <div class="team-photo-wrapper" style="width: 100%; height: 100%; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(86,24,14,0.15);">
+          <img src="../static/img/historia-proceso.jpg" alt="Preparación artesanal de gomitas Gomi Lokas" class="team-photo" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+      <div class="story-copy reveal">
+        <p class="section-kicker">06 / NUESTRA HISTORIA</p>
+        <h2>De una idea<br>a una <span>experiencia.</span></h2>
+        <p>Gomi Lokas nace como parte de una muestra empresarial escolar, con ganas de crear algo diferente y compartir un producto divertido. Elegimos las gomitas enchiladas porque mezclan sabores que sorprenden y convierten un dulce cotidiano en una pequeña aventura.</p>
+        <p>Este proyecto también es una oportunidad para aprender sobre creatividad, trabajo en equipo, atención al cliente y el mundo de los emprendimientos.</p>
+        <div class="story-signature">Gomi Lokas <span>♥</span></div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN GALERÍA -->
+    <section class="gallery section-pad" id="galeria">
+      <div class="section-heading reveal">
+        <div><p class="section-kicker">07 / GALERÍA</p><h2>Un poquito de <span>nuestros productos.</span></h2></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-tile gallery-large reveal" style="overflow: hidden; border-radius: 20px; position: relative;">
+          <img src="../static/img/galeria1.jpg" alt="Galería Gomi Lokas 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div class="gallery-tile reveal" style="overflow: hidden; border-radius: 20px; position: relative;">
+          <img src="../static/img/galeria2.jpg" alt="Galería Gomi Lokas 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div class="gallery-tile reveal" style="overflow: hidden; border-radius: 20px; position: relative;">
+          <img src="../static/img/galeria3.jpg" alt="Galería Gomi Lokas 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE OPINIONES -->
+    <section class="reviews-section-ref reveal" id="opiniones">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <p class="section-kicker">08 / OPINIONES</p>
+        <h2 class="reviews-title-ref" style="margin-bottom: 0;">LO QUE DICEN NUESTROS CLIENTES</h2>
+      </div>
+      <div class="reviews-grid-ref" style="margin-top: 30px;">
+        <article class="review-card-ref">
+          <div class="review-stars-ref">★★★★★</div>
+          <p class="review-text-ref">“¡Me encanta la idea de mezclar lo dulce con lo picante!”</p>
+          <span class="review-author-ref">VALERY SANCHEZ</span>
+        </article>
+
+        <article class="review-card-ref">
+          <div class="review-stars-ref">★★★★★</div>
+          <p class="review-text-ref">“Un antojo diferente para compartir con amigos.”</p>
+          <span class="review-author-ref">CRISTINA HERNÁNDEZ</span>
+        </article>
+
+        <article class="review-card-ref">
+          <div class="review-stars-ref">★★★★★</div>
+          <p class="review-text-ref">“La presentación y los colores llaman muchísimo la atención.”</p>
+          <span class="review-author-ref">LOREN TORRES</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN ENCUÉNTRANOS -->
+    <section class="location section-pad" id="contacto">
+      <div class="location-copy reveal"><p class="section-kicker">09 / ENCUÉNTRANOS</p><h2>Nos vemos en <span>Palmira.</span></h2><p>¿Te antojaste? Escríbenos para conocer los productos disponibles.</p>
+        <div class="contact-list">
+          <a href="https://www.instagram.com/gomilokas.col/" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon">◎</span>
+            <span>
+              <small style="font-family: 'Plus Jakarta Sans', sans-serif !important; font-weight: 700; letter-spacing: 1px;">INSTAGRAM</small>
+              <b style="font-family: 'Inter', sans-serif !important; font-weight: 600; font-size: 1.05rem;">@gomilokas.col</b>
+            </span>
+            <span class="contact-arrow">↗</span>
+          </a>
+          <a href="https://wa.me/573169437695" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon">☏</span>
+            <span>
+              <small style="font-family: 'Plus Jakarta Sans', sans-serif !important; font-weight: 700; letter-spacing: 1px;">WHATSAPP</small>
+              <b style="font-family: 'Inter', sans-serif !important; font-weight: 600; font-size: 1.05rem;">316 943 7695</b>
+            </span>
+            <span class="contact-arrow">↗</span>
+          </a>
+          <a href="mailto:gomi_lokas@gmail.com">
+            <span class="contact-icon">✉</span>
+            <span>
+              <small style="font-family: 'Plus Jakarta Sans', sans-serif !important; font-weight: 700; letter-spacing: 1px;">CORREO</small>
+              <b style="font-family: 'Inter', sans-serif !important; font-weight: 600; font-size: 1.05rem;">gomi_lokas@gmail.com</b>
+            </span>
+            <span class="contact-arrow">↗</span>
+          </a>
+          <div class="contact-row">
+            <span class="contact-icon">⌖</span>
+            <span>
+              <small style="font-family: 'Plus Jakarta Sans', sans-serif !important; font-weight: 700; letter-spacing: 1px;">UBICACIÓN</small>
+              <b style="font-family: 'Inter', sans-serif !important; font-weight: 600; font-size: 1.05rem;">Unicentro, Palmira, Valle del Cauca</b>
+            </span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">◷</span>
+            <span>
+              <small style="font-family: 'Plus Jakarta Sans', sans-serif !important; font-weight: 700; letter-spacing: 1px;">HORARIO PUNTO FÍSICO</small>
+              <b style="font-family: 'Inter', sans-serif !important; font-weight: 600; font-size: 0.95rem; line-height: 1.5;">Lunes a Viernes: 8:00 a.m. – 6:00 p.m. / Sábados, Domingos y Festivos: 10:00 a.m. – 8:00 p.m.</b>
+            </span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">◷</span>
+            <span>
+              <small style="font-family: 'Plus Jakarta Sans', sans-serif !important; font-weight: 700; letter-spacing: 1px;">HORARIOS DE DOMICILIOS</small>
+              <b style="font-family: 'Inter', sans-serif !important; font-weight: 600; font-size: 0.95rem; line-height: 1.5;">Lunes a Viernes: 2:00 p.m. – 7:00 p.m. / Sábados, Domingos y Festivos: 2:00 p.m. – 9:00 p.m.</b>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="map-card reveal"><iframe title="Mapa de Unicentro Palmira" src="https://maps.google.com/maps?q=Unicentro%20Palmira%2C%20Valle%20del%20Cauca&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="map-caption"><span></span><div><b>Unicentro </b><small>Palmira, Valle del Cauca, Colombia</small></div><a href="https://www.google.com/maps/search/?api=1&query=Unicentro+Palmira" target="_blank" rel="noopener noreferrer" aria-label="Abrir ubicación en Google Maps">↗</a></div></div>
+    </section>
+
+    <section class="final-cta"><div class="final-cta-inner reveal"><span class="cta-pepper"></span><p></p><h2>¿Te atreves a<br><span>probarlas?</span></h2><a class="btn btn-dark" href="https://wa.me/573169437695?text=Hola%20Gomi%20Lokas%2C%20quiero%20conocer%20sus%20gomitas%20enchiladas." target="_blank" rel="noopener noreferrer">Quiero mis gomitas</a></div></section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#inicio">GOMI <b>LOKAS</b><span>!</span></a>
+    
+    <div class="footer-links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://www.instagram.com/gomilokas.col/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    </div>
+    <small>© <span id="year"></span> Gomi Lokas · Proyecto Tecnico Comercial.</small>
+    <div>
+      
+    </div>
+  </footer>
+  <a class="whatsapp-float" href="https://wa.me/573169437695?text=Hola%20Gomi%20Lokas%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" aria-label="Escribir a Gomi Lokas por WhatsApp">☏</a>
+</body>
+</html>
